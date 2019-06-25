@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="item.id">{{'system.update' | translate}} {{'User.title.singular' | translate}}</mat-card-title>
+    <mat-card-title *ngIf="!item.id">{{'system.register' | translate}} {{'User.title.plural' | translate}}</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <mat-card-content>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+          <mat-form-field *ngIf="editForm.get('name')">
+            <input required matInput placeholder="{{'User.name' | translate}}" formControlName="name">
+          </mat-form-field>
+          <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.name"></app-control-message>
+          <mat-form-field *ngIf="editForm.get('email')">
+            <input required matInput placeholder="{{'User.email' | translate}}" formControlName="email">
+          </mat-form-field>
+          <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.email"></app-control-message>
+          <mat-form-field *ngIf="editForm.get('login')">
+            <input required matInput placeholder="{{'User.login' | translate}}" formControlName="login">
+          </mat-form-field>
+          <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.login"></app-control-message>
+          <mat-form-field *ngIf="editForm.get('newPassword')">
+            <input type="password" required matInput placeholder="{{'User.password' | translate}}" formControlName="newPassword">
+          </mat-form-field>
+          <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.newPassword"></app-control-message>
+          <mat-form-field *ngIf="editForm.get('role')">
+            <mat-select [compareWith]="equalsSelect" placeholder="{{'User.role' | translate}}" formControlName="role">
+              <mat-option *ngFor="let role of roles" [value]="role">{{ role.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.role"></app-control-message>
+
+
+          <div class="row m-t-10">
+            <div class="col-md-8 offset-md-2 text-center">
+              <div class="box">
+                <button type="button" mat-raised-button class="button-crud bg-light text-black m-r-10" (click)="backToList()">{{'system.back' | translate}}</button>
+                <app-loading-button *ngIf="item.id" [loading]="loading" [type]="submit" [form]="editForm" color="primary">{{'system.update' | translate}}</app-loading-button>
+                <app-loading-button *ngIf="!item.id" [loading]="loading" [type]="submit" [form]="editForm" color="primary">{{'system.register' | translate}}</app-loading-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

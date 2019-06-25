@@ -1,0 +1,30 @@
+<div class="row" style="background-color: white; margin-top: 100px">
+
+  <div class="col-md-4 offset-md-4">
+    <mat-card class="box">
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="text-center">
+            <img mat-card-image src="assets/images/background/organization-logo.png" alt="Logo Virtus" id="img-login">
+          </div>
+
+          <mat-form-field appearance="standard">
+            <mat-label class="input-login">{{ 'login.login' | translate }}</mat-label>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput formControlName="login" required>
+          </mat-form-field>
+          <app-control-message [control]="loginForm.controls.login"></app-control-message>
+
+          <mat-form-field appearance="standard">
+            <mat-label class="input-login">{{ 'login.password' | translate }}</mat-label>
+            <mat-icon matPrefix>vpn_key</mat-icon>
+            <input matInput formControlName="password" type="password" required>
+          </mat-form-field>
+          <app-control-message [control]="loginForm.controls.password"></app-control-message>
+
+          <app-loading-button class="button-block" [loading]="loading" type="submit" [form]="loginForm" color="primary">Login</app-loading-button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

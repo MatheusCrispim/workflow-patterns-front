@@ -1,0 +1,132 @@
+{
+  "languages": {
+    "pt-br": "Português - BR",
+    "en": "Inglês"
+  },
+  "domain": {
+    "user": {
+      "super-user": "Super usuário"
+    }
+  },
+  "operations": {
+    "success": {
+      "title": "Sucesso",
+      "message": "Operação realizada com sucesso."
+    },
+    "error": {
+      "title": "Erro"
+    },
+    "warning": {
+      "title": "Alerta"
+    },
+    "info": {
+      "title": "Info"
+    },
+    "insert": {
+      "success": "Item inserido.",
+      "error": "Erro ao inserir item."
+    },
+    "update": {
+      "success": "Item atualizado.",
+      "error": "Erro ao atualizar item."
+    },
+    "delete": {
+      "success": "Item removido.",
+      "error": "Erro ao remover item.",
+      "confirmation": "Tem certeza que deseja remover este item?"
+    },
+    "save": {
+      "success": "Item salvo.",
+      "error": "Erro ao salvar item."
+    }
+  },
+  "system": {
+    "actions": "Ações",
+    "alert": "Alerta",
+    "back": "Voltar",
+    "cancel": "Cancelar",
+    "clear": "Limpar",
+    "close": "Fechar",
+    "delete": "Remover",
+    "edit": "Editar",
+    "exit": "Sair",
+    "form": {
+      "validation": {
+        "required": "Campo obrigatório",
+        "email": "E-mail inválido",
+        "max-size": "Tamanho máximo é {{value}} caracteres",
+        "min-size": "Tamanho mínimo é {{value}} caracteres",
+        "max-value": "Valor máximo permitido para este campo é {{value}}",
+        "min-value": "Valor mínimo permitido para este campo é {{value}}",
+        "password": {
+          "invalid":
+            "Sua senha deve conter pelo menos 1 minúscula, 1 maiúscula, números, caracteres especiais (@ # $% & *), e  tamanho de 8 a 16 caracteres.",
+          "not-same": "As senhas não são as mesmas"
+        }
+      }
+    },
+    "no": "Não",
+    "ok": "OK",
+    "pagination": {
+      "items-page": "Itens por página",
+      "next-page": "Próxima página",
+      "previous-page": "Página anterior",
+      "first-page": "Primeira página",
+      "last-page": "Última página"
+    },
+    "password": "Senha",
+    "register": "Cadastrar",
+    "search": {
+      "base": "Busca",
+      "advanced": "Busca Avançada"
+    },
+    "update": "Atualizar",
+    "view": "Visualizar",
+    "yes": "Sim",
+    "session": {
+      "expired": "Sua sessão expirou. Por favor faça login novamente."
+    },
+    "table": {
+      "empty": "Nenhum registro foi encontrado."
+    }
+  },
+  "change-password": {
+    "label": "Alterar senha",
+    "current": "Senha atual",
+    "new": "Nova senha",
+    "repeat": "Repetir senha",
+    "success": "Senha alterada com sucesso"
+  },
+  "login": {
+    "error": "Login and/or password incorrect.",
+    "login": "Login",
+    "password": "Password"
+  },
+  "home": {
+    "title": "Início"
+  },
+  "User": {
+    "title": { "singular": "User", "plural": "Users" },
+    "name": "Name",
+    "email": "Email",
+    "login": "Login",
+    "password": "Password",
+    "role": "Role"
+  },
+  "Task": {
+    "title": { "plural": "Tasks" },
+    "date": "Date",
+    "taskState": "State"
+  },
+  "Permission": {
+    "title": { "singular": "Permission", "plural": "Permissions" },
+    "name": "Name",
+    "description": "Description"
+  },
+  "Role": {
+    "title": { "singular": "Role", "plural": "Roles" },
+    "name": "Name",
+    "description": "Description",
+    "permissions": "Permissions"
+  }
+}

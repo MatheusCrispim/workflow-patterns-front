@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ 'system.alert' | translate }}</h2>
+
+<mat-dialog-content class="mat-typography">
+  <h3>{{ 'operations.delete.confirmation' | translate }}</h3>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'system.cancel' | translate }}</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{ 'system.ok' | translate }}</button>
+</mat-dialog-actions>

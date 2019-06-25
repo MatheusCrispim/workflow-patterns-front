@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{'system.view' | translate}} </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <mat-card-content>
+
+        <mat-form-field *ngIf="item.date">
+          <input matInput required placeholder="{{'Task.date' | translate}}" [(ngModel)]="item.date" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.taskState">
+          <input matInput required placeholder="{{'Task.taskState' | translate}}" [(ngModel)]="item.taskState" disabled>
+        </mat-form-field>
+
+        <div class="row m-t-10">
+          <div class="col-md-8 offset-md-2 text-center">
+            <div class="box">
+              <button type="button" mat-raised-button class="button-crud bg-light text-black m-l-10"
+                (click)="backToList()">{{'system.back' | translate}}</button>
+              <a [routerLink]="['/tasks', 'edit', item.id]" *ngxPermissionsOnly="['update-*', 'update-task']"
+                mat-raised-button class="button-crud m-l-10" color="primary">{{'system.edit' | translate}}</a> </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

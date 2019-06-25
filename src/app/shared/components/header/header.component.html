@@ -1,0 +1,15 @@
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<app-select-language></app-select-language>
+
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/profile-undefined.png" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+  <a mat-menu-item [routerLink]="['/password/change']">
+    <mat-icon>vpn_key</mat-icon>{{ 'change-password.label' | translate}}
+  </a>
+
+  <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>{{ 'system.exit' | translate}}
+    </button>
+</mat-menu>

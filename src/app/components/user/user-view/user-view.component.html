@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{'system.view' | translate}} User</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <mat-card-content>
+
+        <mat-form-field *ngIf="item.name">
+          <input matInput required placeholder="{{'User.name' | translate}}" [(ngModel)]="item.name" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.email">
+          <input matInput required placeholder="{{'User.email' | translate}}" [(ngModel)]="item.email" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.login">
+          <input matInput required placeholder="{{'User.login' | translate}}" [(ngModel)]="item.login" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.password">
+          <input matInput required placeholder="{{'User.password' | translate}}" [(ngModel)]="item.password" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.role">
+          <input matInput required placeholder="{{'User.role' | translate}}" [(ngModel)]="item.role.name" disabled>
+        </mat-form-field>
+
+        <div class="row m-t-10">
+          <div class="col-md-8 offset-md-2 text-center">
+            <div class="box">
+              <button type="button" mat-raised-button class="button-crud bg-light text-black m-l-10" (click)="backToList()">{{'system.back' | translate}}</button>
+              <a [routerLink]="['/users', 'edit', item.id]" *ngxPermissionsOnly="['update-*', 'update-user']" mat-raised-button class="button-crud m-l-10" color="primary">{{'system.edit' | translate}}</a> </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

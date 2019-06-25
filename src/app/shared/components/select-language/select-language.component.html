@@ -1,0 +1,14 @@
+<button [matMenuTriggerFor]="language" mat-icon-button class="m-r-10"> <img [src]="urlFlag"
+        [alt]="alt" class="profile-pic"> </button>
+<mat-menu #language="matMenu" class="mymegamenu">
+
+  <button mat-menu-item (click)="setLang('pt')">
+        <img src="assets/images/language/Brazil-icon.png" class="region-flag" alt="">
+        <span translate>languages.pt-br</span>
+    </button>
+
+  <button mat-menu-item (click)="setLang('en')">
+        <img src="assets/images/language/USA-icon.png" class="region-flag" alt="">
+        <span translate>languages.en</span>
+    </button>
+</mat-menu>

@@ -1,0 +1,9 @@
+<button [ngClass]="{'button-block': class, 'button-crud': !class}" [class.active]="isLoading" type="submit" [disabled]="isLoading || !isFormValid" mat-raised-button [color]="color">
+
+    <span class="button-text" [class.active]="isLoading">
+        <ng-content></ng-content>
+    </span>
+    <mat-icon [class.active]="isLoading">
+        <mat-spinner [ngClass]="{'button-block-active': class}" class="spinner" [class.active]="isLoading" [diameter]="25"></mat-spinner>
+    </mat-icon>
+</button>

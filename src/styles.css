@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+table {
+    width: 100%;
+}
+
+.mat-form-field, .mat-checkbox {
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.mat-checkbox {
+    margin-top: 15px;
+}
+
+/* margin definition */
+.m-10 {
+    margin: 10px;
+}
+
+.m-15 {
+    margin: 15px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.m-r-10 {
+    margin-right: 20px;
+}
+
+/* others */
+.width-50 {
+    width: 50%;
+}
+
+.button-crud {
+    width: 110px;
+    margin-top: 10px;
+    text-align: center;
+}

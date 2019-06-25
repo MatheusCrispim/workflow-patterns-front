@@ -1,0 +1,43 @@
+.button-block {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mat-icon {
+    display: none;
+}
+
+.mat-icon.active {
+    display: inline-block;
+}
+
+button.active {
+    cursor:not-allowed;
+}
+
+mat-spinner {
+    margin: 0;
+    position: absolute;
+    top: 5px;
+}
+
+.spinner {
+    opacity:0;
+    transition:opacity .3s ease-in-out;
+}
+
+.spinner.active {
+    opacity:1;
+}
+
+button-text{
+    opacity:1;
+    transition:
+    opacity .3s ease-in-out;
+}
+
+span.active {
+    display: none;
+}
+

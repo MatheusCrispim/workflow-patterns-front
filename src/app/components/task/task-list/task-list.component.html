@@ -1,0 +1,63 @@
+<mat-card>
+
+  <mat-card-header fxLayoutAlign="space-between center">
+    <mat-card-title>{{'Task.title.plural' | translate}}</mat-card-title>
+    <button *ngxPermissionsOnly="['insert-*', 'insert-permission']" mat-raised-button color="primary" (click)="add()">
+      <mat-icon>add</mat-icon>{{'Task.title.singular' | translate}}
+    </button>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+
+    <app-advanced-search *ngIf="!loading" [properties]="searchProperties" (searchSubmit)="onSearch($event)"
+      (keySearch)="onSearch($event)"></app-advanced-search>
+
+    <app-loading [(loading)]="loading"></app-loading>
+
+    <table id="table" [hidden]="loading" mat-table [dataSource]="dataSource" matSort
+      (matSortChange)="onChangeSort($event)" class="mat-elevation-z8">
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+      </ng-container>
+
+      <!-- date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Task.date' | translate}}</th>
+        <td mat-cell *matCellDef="let item"> {{item.date }} </td>
+      </ng-container>
+      <!-- taskState Column -->
+      <ng-container matColumnDef="taskState">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Task.taskState' | translate}}</th>
+        <td mat-cell *matCellDef="let item"> {{item.taskState }} </td>
+      </ng-container>
+
+      <!-- actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> {{'system.actions' | translate}} </th>
+        <td mat-cell *matCellDef="let item">
+          <button *ngxPermissionsOnly="['read-*', 'read-task']" (click)="view(item.id)" mat-icon-button
+            class="text-info" matTooltip="{{'system.view' | translate}}">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button *ngxPermissionsOnly="['update-*', 'update-task']" (click)="edit(item.id)" mat-icon-button
+            matTooltip="{{'system.edit' | translate}}">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngxPermissionsOnly="['delete-*', 'delete-task']" (click)="remove(item.id)" mat-icon-button
+            class="text-danger" matTooltip="{{'system.delete' | translate}}">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator *ngIf="listIsEmpty" [length]="totalPages * currentPageSize" [pageSize]="currentPageSize"
+      [pageSizeOptions]="pageSizeOptions" showFirstLastButtons (page)="onChangePaginator($event)"></mat-paginator>
+  </mat-card-content>
+</mat-card>

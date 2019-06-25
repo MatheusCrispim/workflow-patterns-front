@@ -1,0 +1,90 @@
+<!-- ============================================================== -->
+<!-- sidebar -->
+<!-- ============================================================== -->
+<div class="user-profile" style="background: url(assets/images/background/project-logo-profile.png) no-repeat;">
+  <!-- User profile image -->
+  <!-- <div class="profile-img"> <img src="assets/images/profile-undefined.png" alt="user"> </div> -->
+  <!-- User profile text-->
+  <!-- ============================================================== -->
+  <!-- Profile - style you can find in header.scss -->
+  <!-- ============================================================== -->
+  <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> {{user.login}} <i
+        class="ti-angle-down font-12 m-l-5"></i></a></div>
+  <mat-menu #sdprofile="matMenu" class="mymegamenu">
+
+    <a mat-menu-item [routerLink]="['/password/change']">
+      <mat-icon>vpn_key</mat-icon>{{ 'change-password.label' | translate}}
+    </a>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon> {{ 'system.exit' | translate}}
+    </button>
+
+  </mat-menu>
+</div>
+
+<mat-nav-list appAccordion>
+  <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected" group="{{menuitem.value}}">
+    <ng-template [ngxPermissionsOnly]="menuitem.permissions || []">
+      <a appAccordionToggle [routerLink]="['/' + menuitem.value]" *ngIf="menuitem.type === 'link'">
+        <mat-icon>{{ menuitem.icon }}</mat-icon>
+        <span>{{ menuitem.label | translate }}</span>
+        <span fxFlex></span>
+      </a>
+    </ng-template>
+
+    <ng-template [ngxPermissionsOnly]="menuitem.permissions || []">
+      <a appAccordionToggle href="javascript:void(0);" *ngIf="menuitem.type === 'sub'">
+        <mat-icon>{{ menuitem.icon }}</mat-icon>
+        <span>{{ menuitem.label | translate }}</span>
+        <span fxFlex></span>
+        <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
+      </a>
+    </ng-template>
+
+    <ng-template [ngxPermissionsOnly]="menuitem.permissions || []">
+      <mat-nav-list class="sub-item" *ngIf="menuitem.type === 'sub'">
+
+        <mat-list-item *ngFor="let childitem of menuitem.children" routerLinkActive="selected">
+          <ng-template [ngxPermissionsOnly]="childitem.permissions || []">
+            <a [routerLink]="['/', childitem.value]" *ngIf="childitem.type === 'link'" class="relative" routerLinkActive="selected">
+              <mat-icon>{{ menuitem.icon }}</mat-icon>
+              {{childitem.label | translate}}
+            </a>
+          </ng-template>
+        </mat-list-item>
+
+
+        <mat-list-item *ngFor="let childitem of menuitem.children">
+          <ng-template [ngxPermissionsOnly]="childitem.permissions || []">
+
+            <a class="" href="javascript: void(0);" *ngIf="childitem.type === 'sub'" (click)="isSelected($event)">
+              <mat-icon>{{ menuitem.icon }}</mat-icon>
+              <span>{{ childitem.label | translate }}</span>
+              <span fxFlex></span>
+              <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
+            </a>
+            <mat-nav-list class="child-sub-item" *ngIf="childitem.type === 'sub'">
+              <mat-list-item *ngFor="let child of childitem.children" routerLinkActive="selected">
+                <ng-template [ngxPermissionsOnly]="child.permissions || []">
+                  <a [routerLink]="['/', child.value ]" routerLinkActive="selected">
+                    <mat-icon>{{ menuitem.icon }}</mat-icon>
+                    <span>{{child.label | translate}}</span>
+                    <span fxFlex></span>
+                  </a>
+                </ng-template>
+              </mat-list-item>
+
+            </mat-nav-list>
+          </ng-template>
+        </mat-list-item>
+
+      </mat-nav-list>
+    </ng-template>
+
+    <div class="saperator text-muted" *ngIf="menuitem.type === 'saperator'">
+      <span>{{ menuitem.label }}</span>
+    </div>
+
+  </mat-list-item>
+</mat-nav-list>

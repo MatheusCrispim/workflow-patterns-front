@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{'system.view' | translate}} Permission</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <mat-card-content>
+
+        <mat-form-field *ngIf="item.name">
+          <input matInput required placeholder="{{'Permission.name' | translate}}" [(ngModel)]="item.name" disabled>
+        </mat-form-field>
+        <mat-form-field *ngIf="item.description">
+          <input matInput required placeholder="{{'Permission.description' | translate}}" [(ngModel)]="item.description" disabled>
+        </mat-form-field>
+
+        <div class="row m-t-10">
+          <div class="col-md-8 offset-md-2 text-center">
+            <div class="box">
+              <button type="button" mat-raised-button class="button-crud bg-light text-black m-l-10" (click)="backToList()">{{'system.back' | translate}}</button>
+              <a [routerLink]="['/permissions', 'edit', item.id]" *ngxPermissionsOnly="['update-*', 'update-permission']" mat-raised-button class="button-crud m-l-10" color="primary">{{'system.edit' | translate}}</a> </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>
