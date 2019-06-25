@@ -50,13 +50,13 @@
             class="text-danger" matTooltip="{{'system.delete' | translate}}">
             <mat-icon>delete</mat-icon>
           </button>
-          <button *ngIf="utilIN(item.taskState, 'initial')" (click)="sendAction(item.id, 'openOffice')">
+          <button (click)="sendAction(item.id, 'openOffice')">
             <span> OpenOffice </span>
           </button>
-          <button *ngIf="utilIN(item.taskState, 'open')" (click)="sendAction(item.id, 'doBanking')">
+          <button (click)="sendAction(item.id, 'doBanking')">
             <span> DoBanking </span>
           </button>
-          <button *ngIf="utilIN(item.taskState, 'banker')" (click)="sendAction(item.id, 'closeOffice')">
+          <button (click)="sendAction(item.id, 'closeOffice')">
             <span> CloseOffice </span>
           </button>
         </td>
