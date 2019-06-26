@@ -14,6 +14,9 @@ import { format } from 'date-fns';
   styleUrls: ['./task-edit.component.css']
 })
 export class TaskEditComponent extends BaseEditComponent implements OnInit {
+
+  taskStates: any = []
+
   constructor(
     private route: ActivatedRoute,
     private enumItemsService: EnumItemsService
@@ -23,6 +26,7 @@ export class TaskEditComponent extends BaseEditComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.taskStates = this.enumItemsService.getTaskStateTask()
   }
 
   getFormControls(): Object {

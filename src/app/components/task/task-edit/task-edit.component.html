@@ -11,10 +11,6 @@
     <div class="col-md-8 offset-md-2">
       <mat-card-content>
         <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-
-          <mat-form-field *ngIf="editForm.get('date')">
-            <input matInput placeholder="{{'Task.date' | translate}}" formControlName="date">
-          </mat-form-field>
           <app-control-message *ngIf="!isEditMode" [control]="editForm.controls.date"></app-control-message>
           <mat-form-field *ngIf="editForm.get('taskState')">
             <mat-select placeholder="State" formControlName="taskState">
