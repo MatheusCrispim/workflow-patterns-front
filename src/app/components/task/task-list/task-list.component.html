@@ -2,7 +2,7 @@
 
   <mat-card-header fxLayoutAlign="space-between center">
     <mat-card-title>{{'Task.title.plural' | translate}}</mat-card-title>
-    <button *ngxPermissionsOnly="['insert-*', 'insert-permission']" mat-raised-button color="primary" (click)="add()">
+    <button *ngxPermissionsOnly="['insert-*', 'insert-permission']" mat-raised-button color="primary" (click)="add()" id="add-entity">
       <mat-icon>add</mat-icon>{{'Task.title.singular' | translate}}
     </button>
   </mat-card-header>
@@ -50,13 +50,13 @@
             class="text-danger" matTooltip="{{'system.delete' | translate}}">
             <mat-icon>delete</mat-icon>
           </button>
-          <button (click)="sendAction(item.id, 'openOffice')">
+          <button (click)="sendAction(item.id, 'openOffice')" id="button-openOffice-{{item.id}}">
             <span> OpenOffice </span>
           </button>
-          <button (click)="sendAction(item.id, 'doBanking')">
+          <button (click)="sendAction(item.id, 'doBanking')" id="button-doBanking-{{item.id}}">
             <span> DoBanking </span>
           </button>
-          <button (click)="sendAction(item.id, 'closeOffice')">
+          <button (click)="sendAction(item.id, 'closeOffice')" id="button-closeOffice-{{item.id}}">
             <span> CloseOffice </span>
           </button>
         </td>
