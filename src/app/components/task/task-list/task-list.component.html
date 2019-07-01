@@ -53,10 +53,10 @@
           <button *ngIf="utilIN(item.taskState, 'initial')" (click)="sendAction(item.id, 'openOffice')" id="button-openOffice-{{item.id}}">
             <span> OpenOffice </span>
           </button>
-          <button *ngIf="utilIN(item.taskState, 'open')" (click)="sendAction(item.id, 'doBanking')" id="button-doBanking-{{item.id}}">
+          <button *ngIf="utilIN(item.taskState, 'opened')" (click)="sendAction(item.id, 'doBanking')" id="button-doBanking-{{item.id}}">
             <span> DoBanking </span>
           </button>
-          <button *ngIf="utilIN(item.taskState, 'banker')" (click)="sendAction(item.id, 'closeOffice')" id="button-closeOffice-{{item.id}}">
+          <button *ngIf="utilIN(item.taskState, 'banked')" (click)="sendAction(item.id, 'closeOffice')" id="button-closeOffice-{{item.id}}">
             <span> CloseOffice </span>
           </button>
         </td>
