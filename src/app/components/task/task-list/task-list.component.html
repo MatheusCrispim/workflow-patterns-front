@@ -50,6 +50,9 @@
             class="text-danger" matTooltip="{{'system.delete' | translate}}">
             <mat-icon>delete</mat-icon>
           </button>
+          <button (click)="sendAction(item.id, 'closeOffice')" id="button-openOffice-{{item.id}}">
+            <span> openOffice </span>
+          </button>
         </td>
       </ng-container>
 
