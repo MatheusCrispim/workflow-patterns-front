@@ -111,7 +111,8 @@
     "email": "Email",
     "login": "Login",
     "password": "Password",
-    "role": "Role"
+    "role": "Role",
+    "user-select": "Select a Volunteer"
   },
   "Task": {
     "title": { "plural": "Tasks" },

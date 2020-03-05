@@ -18,9 +18,10 @@ import { TaskRoutingModule } from './task.routing';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskViewComponent } from './task-view/task-view.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { UserSelectComponent } from '../user/user-select/user-select.component';
 
 @NgModule({
-  declarations: [TaskEditComponent, TaskListComponent, TaskViewComponent],
+  declarations: [TaskEditComponent, TaskListComponent, TaskViewComponent, UserSelectComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -37,6 +38,7 @@ import { TaskListComponent } from './task-list/task-list.component';
     LoadingButtonModule,
     NgxMaskModule.forRoot(),
     TaskRoutingModule
-  ]
+  ],
+  entryComponents:[UserSelectComponent]
 })
 export class TaskModule { }

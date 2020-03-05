@@ -50,8 +50,8 @@
             class="text-danger" matTooltip="{{'system.delete' | translate}}">
             <mat-icon>delete</mat-icon>
           </button>
-          <button (click)="sendAction(item.id, 'closeOffice')" id="button-openOffice-{{item.id}}">
-            <span> openOffice </span>
+          <button (click)="assignTaskToUser(item.id)" id="button-offerTaskToUser-{{item.id}}">
+            <span> offerTaskToUser </span>
           </button>
         </td>
       </ng-container>
@@ -62,5 +62,5 @@
 
     <mat-paginator *ngIf="listIsEmpty" [length]="totalPages * currentPageSize" [pageSize]="currentPageSize"
       [pageSizeOptions]="pageSizeOptions" showFirstLastButtons (page)="onChangePaginator($event)"></mat-paginator>
-  </mat-card-content>
+    </mat-card-content>
 </mat-card>

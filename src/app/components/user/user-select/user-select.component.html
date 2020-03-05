@@ -1,0 +1,13 @@
+
+<form [formGroup]="editForm">
+    <h2 mat-dialog-title>{{'User.user-select' | translate}}</h2>
+    <mat-dialog-actions>
+        <mat-select placeholder="{{'User.title.plural' | translate}}"  formControlName="assignedUser"> 
+            <mat-option *ngFor="let user of users" [value]="user" (click)="selectUser()" >
+                {{user.name}}
+            </mat-option>
+        </mat-select>
+    </mat-dialog-actions>
+</form>
+
+
